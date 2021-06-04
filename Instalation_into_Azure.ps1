@@ -37,9 +37,6 @@ $AzureKubernetesNameSpace='jenkins-ci-test-1'
 
 
 
-Write-Host "All necessary software installed. "
-
-
 #Infrastructure creation
 #Azure login will prompt user for login into cloud env;
 Clear-AzContext -Scope CurrentUser -Force
