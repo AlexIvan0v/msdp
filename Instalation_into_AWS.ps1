@@ -1,3 +1,5 @@
+#before use this script you should perfom aws config
+
 eksctl create cluster --version=1.19 --name=jenkins-cluster --node-private-networking --alb-ingress-access --region=us-west-2 --asg-access --without-nodegroup
 
 eksctl create nodegroup --cluster=jenkins-cluster --region=us-west-2 --name=jenkins-server-ng --managed --nodes=2 --node-labels="lifecycle=OnDemand,intent=jenkins-server"

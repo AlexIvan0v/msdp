@@ -1,4 +1,5 @@
 ﻿#Function for PATH modification
+
 function Set-PathVariable {
     param (
         [string]$AddPath,
@@ -21,7 +22,6 @@ function Set-PathVariable {
 }
 
 
-
 #Section will contain necesary patch updates.
 #Adding patchs 
 
@@ -39,7 +39,7 @@ $AzureKubernetesNameSpace='jenkins-ci-test-1'
 
 #Infrastructure creation
 #Azure login will prompt user for login into cloud env;
-Clear-AzContext -Scope CurrentUser -Force
+az logout
 az login
 
 #creating infrastructure I'll use the cheapest region 

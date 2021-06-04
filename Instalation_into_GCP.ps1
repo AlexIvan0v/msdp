@@ -1,4 +1,7 @@
-﻿
+﻿# before use this package you should register in GCP platfrom
+# create project 
+# open API for that project and provide information into variable below
+
 $GCPProjectID='jenkins-into-gke2'
 $GCPProjectName='Jenkins-ci'
 $GCPclusterName='regional-cluster-1'
