@@ -22,23 +22,6 @@ function Set-PathVariable {
 
 
 
-#section will contain instalation for prereqired software helm cli for clouds, etc. 
-#Install the package manager for Windows chocolately
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-#install kubectl for cluster communication 
-choco install kubernetes-cli
-#Install helm for chart operating
-choco install kubernetes-helm
-
-#install az for communication with Azure 
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-
-
-
-
-
-
 #Section will contain necesary patch updates.
 #Adding patchs 
 
