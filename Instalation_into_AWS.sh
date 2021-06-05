@@ -4,7 +4,7 @@ eksctl create cluster --version=1.19 --name=jenkins-cluster --node-private-netwo
 
 eksctl create nodegroup --cluster=jenkins-cluster --region=us-west-2 --name=jenkins-server-ng --managed --nodes=2 --node-labels="lifecycle=OnDemand,intent=jenkins-server"
 
-$AWSKubernetesNameSpace='jenkins-ci-test'
+AWSKubernetesNameSpace='jenkins-ci-test'
 
 #installing jenkins into cluster
 

@@ -2,10 +2,10 @@
 # create project 
 # open API for that project and provide information into variable below
 
-$GCPProjectID='jenkins-into-gke2'
-$GCPProjectName='Jenkins-ci'
-$GCPclusterName='regional-cluster-1'
-$GCPKubernetesNameSpace='jenkins-ci-test'
+GCPProjectID='jenkins-into-gke2'
+GCPProjectName='Jenkins-ci'
+GCPclusterName='regional-cluster-1'
+GCPKubernetesNameSpace='jenkins-ci-test'
 
 #Asumption all nececary software installed. 
 
@@ -25,8 +25,6 @@ gcloud container clusters create  $GCPclusterName --project $GCPProjectID --regi
 
 #Get connection info for cluster
 gcloud container clusters get-credentials $GCPclusterName --region us-central1 --project $GCPProjectID
-
-
 
 #installing jenkins into cluster
 
