@@ -24,5 +24,8 @@ For example You want use GCP and your system is Linux, so your choise is - Insta
 Download it replace variables in the top of file save and launch.
 
 # Limitations: 
- - For AWS you should perform registration from your command line using *aws configure* command. 
+ - For AWS 
+   User should be created in ASW portal with CLI access. Use for references (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+   You should perform registration from your command line using *aws configure* command with AWS Access Key ID and AWS Secret Access Key obtained on previous step.
+
  - For GCP you should create Project in console and enable Kubernetes Engine API for that project.
