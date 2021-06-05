@@ -1,3 +1,5 @@
+#section will contain installation for prewired software helm cli for clouds, etc. 
+#Install the package manager for Linux snap
 sudo apt update
 sudo apt install snapd -y
 sudo apt-get install python3 -y
