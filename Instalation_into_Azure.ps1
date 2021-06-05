@@ -1,4 +1,5 @@
 ﻿#Function for PATH modification
+#Before use this script please provide necessary values to variables below.
 
 function Set-PathVariable {
     param (
@@ -22,8 +23,8 @@ function Set-PathVariable {
 }
 
 
-#Section will contain necesary patch updates.
-#Adding patchs 
+#Section will contain necessary patch updates. 
+#Adding patches
 
 $addPathKubectl=$env:HOMEDRIVE+$env:HOMEPATH+'\.azure-kubectl'
 $addPathKubelogin=$env:HOMEDRIVE+$env:HOMEPATH+'\.azure-kubelogin'
@@ -34,8 +35,6 @@ Set-PathVariable -AddPath $addPathKubelogin;
 $AzureResourceGroupName='jenkins-ci-test-1'
 $AzureClusterName='jenkins-ci-test-1'
 $AzureKubernetesNameSpace='jenkins-ci-test-1'
-
-
 
 #Infrastructure creation
 #Azure login will prompt user for login into cloud env;
@@ -55,23 +54,19 @@ az aks create --resource-group $AzureResourceGroupName --name $AzureClusterName 
 #Inastalation of kubectl
 az aks install-cli
 
-#Configure kubectl to work with newle created cluster
+#Configure kubectl to work with newly created cluster
 az aks get-credentials --resource-group $AzureResourceGroupName --name $AzureClusterName --overwrite-existing
 
 
-
-
-#installing jenkins into cluster
-
-#create new name space for Jenkins
+#installing jenkins into cluster 
+#create new namespace for Jenkins
 kubectl create namespace $AzureKubernetesNameSpace
 
 #adding latest repository:
-
 helm repo add jenkins https://charts.jenkins.io
 helm repo update
 
-#run instalation command
+#run installation command
 helm install jenkins-test jenkins/jenkins --namespace $AzureKubernetesNameSpace --set controller.ingress.enabled=true
 
 #opens our pod to the internet

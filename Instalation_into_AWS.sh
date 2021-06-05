@@ -6,9 +6,8 @@ eksctl create nodegroup --cluster=jenkins-cluster --region=us-west-2 --name=jenk
 
 AWSKubernetesNameSpace='jenkins-ci-test'
 
-#installing jenkins into cluster
-
-#create new name space for Jenkins
+#installing jenkins into cluster 
+#create new namespace for Jenkins
 kubectl create namespace $AWSKubernetesNameSpace
 
 #adding latest repository:
@@ -16,7 +15,7 @@ kubectl create namespace $AWSKubernetesNameSpace
 helm repo add jenkins https://charts.jenkins.io
 helm repo update
 
-#run instalation command
+#run installation command
 helm install jenkins-test jenkins/jenkins --namespace $AWSKubernetesNameSpace --set controller.ingress.enabled=true
 
 #opens our pod to the internet

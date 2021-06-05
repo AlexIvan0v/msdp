@@ -1,6 +1,7 @@
 ﻿# before use this package you should register in GCP platfrom
 # create project 
-# open Kubernetes Engine API  for that project and provide information into variable below
+# enable billing 
+# open Kubernetes Engine API for that project and provide information into variable below
 
 GCPProjectID='jenkins-into-gke2'
 GCPProjectName='Jenkins-ci'
@@ -26,9 +27,8 @@ gcloud container clusters create  $GCPclusterName --project $GCPProjectID --regi
 #Get connection info for cluster
 gcloud container clusters get-credentials $GCPclusterName --region us-central1 --project $GCPProjectID
 
-#installing jenkins into cluster
-
-#create new name space for Jenkins
+#installing jenkins into cluster 
+#create new namespace for Jenkins
 kubectl create namespace $GCPKubernetesNameSpace
 
 #adding latest repository:
@@ -36,7 +36,7 @@ kubectl create namespace $GCPKubernetesNameSpace
 helm repo add jenkins https://charts.jenkins.io
 helm repo update
 
-#run instalation command
+#run installation command
 helm install jenkins-test jenkins/jenkins --namespace $GCPKubernetesNameSpace --set controller.ingress.enabled=true
 
 #opens our pod to the internet
